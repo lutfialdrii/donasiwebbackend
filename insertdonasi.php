@@ -2,6 +2,8 @@
 
 include 'connection.php';
 
+$conn = getConnection();
+
 try {
     if($_POST) {
         $donatur = $_POST["donatur"];
@@ -45,10 +47,7 @@ try {
         }
 
         $statement->execute();
-
-        $response["status"] = 200;
         $response["message"] = "Data berhasil di record!";
-        $response["image"] = $image;
 
     }
 } catch (PDOException $e){
